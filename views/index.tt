@@ -88,6 +88,17 @@
           </ul>
         </li>
         <li>
+          Applied tools
+          <ul>
+            <li>
+              <a href="https://metacpan.org/pod/Net::OpenSSH::Parallel">Net::OpenSSH::Parallel</a> - Run SSH jobs in parallel
+            </li>
+            <li>
+              ...
+            </li>
+          </ul>
+        </li>
+        <li>
           ...
         </li>
       </ul>
