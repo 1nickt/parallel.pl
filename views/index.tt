@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="<% settings.charset %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Parallel Perl</title>
+  <style>
+    body {
+      margin: 10;
+      background-color: #ddd;
+      font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+      font-size: 13px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="page">
+    <div id="content">
+      <h1>Parallel Perl</h1>
+
+      <p>This site discusses parallel processing with Perl.</p>
+
+      Perl is a great choice for parallel-process computing!
+
+      <ul>
+        <li>
+          Forking
+          <ul>
+            <li>
+              fork
+            </li>
+            <li>
+              Fork managers
+              <ul>
+                <li>
+                  <a href="https://metacpan.org/pod/Parallel::ForkManager">Parallel::ForkManager</a>
+                </li>
+                <li>
+                  ...
+                </li>
+              </ul>
+            </li>
+            <li>
+              ...
+            </li>
+          </ul>
+        </li>
+        <li>
+          Threads
+          <ul>
+            <li>
+              threads.pm
+            </li>
+            <li>
+              Unnecessarily discouraged!
+            </li>
+            <li>
+              ...
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://metacpan.org/pod/MCE">MCE</a> - Many-Core Engine for Perl
+          <ul>
+            <li>
+              Bank queueing model using a worker pool
+            </li>
+            <li>
+              Chunking
+            </li>
+            <li>
+              ...
+            </li>
+          </ul>
+        </li>
+        <li>
+          Shared variables
+          <ul>
+            <li>
+              <a href="https://metacpan.org/pod/MCE::Shared">MCE::Shared</a>
+            <li>
+              Supporting forked processes or threads or Win32 pseudo-forking
+            </li>
+            <li>
+              ...
+            </li>
+          </ul>
+        </li>
+        <li>
+          ...
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="footer">
+    <small><small>Powered by <a href="http://perldancer.org/">Dancer2</a> <% dancer_version %></small></small>
+  </div>
+<div>
+</body>
+</html>
+
