@@ -14,4 +14,4 @@ Then run:
     plackup bin/app.psgi
 ```
 
-then point your browser at `http://localhost:5000`
+Then point your browser at `http://localhost:5000`
