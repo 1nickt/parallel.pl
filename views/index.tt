@@ -28,13 +28,13 @@
           Forking
           <ul>
             <li>
-              fork
+              <a href="https://perldoc.perl.org/functions/fork.html">fork</a> - Perl built-in function
             </li>
             <li>
               Fork managers
               <ul>
                 <li>
-                  <a href="https://metacpan.org/pod/Parallel::ForkManager">Parallel::ForkManager</a>
+                  <a href="https://metacpan.org/pod/Parallel::ForkManager">Parallel::ForkManager</a> - A simple parallel processing fork manager
                 </li>
                 <li>
                   ...
@@ -50,7 +50,7 @@
           Threads
           <ul>
             <li>
-              threads.pm
+              <a href="https://metacpan.org/pod/threads">threads.pm</a> - Perl interpreter-based threads
             </li>
             <li>
               Unnecessarily discouraged!
