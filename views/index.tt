@@ -51,9 +51,14 @@
           <ul>
             <li>
               <a href="https://metacpan.org/pod/threads">threads.pm</a> - Perl interpreter-based threads
+              <ul>
+                <li>
+                  Unnecessarily discouraged!
+                </li>
+              </ul>
             </li>
             <li>
-              Unnecessarily discouraged!
+              <a href="https://metacpan.org/pod/Thread::Queue">Thread::Queue</A>
             </li>
             <li>
               ...
