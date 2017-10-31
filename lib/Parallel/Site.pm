@@ -1,14 +1,9 @@
 use strict; use warnings; use Data::Dumper; ++$Data::Dumper::Sortkeys;
 
-package MDA;
+package Parallel::Site;
 
 use Dancer2;
-set charset  => 'UTF-8';
-set template => 'simple';
-
-get '/' => sub {
-    template 'index';
-};
+use Parallel::Site::Route;
 
 1; # return true
 
@@ -20,7 +15,7 @@ __END__
 
 =head1 NAME
 
-MDA - MCE Dancer2 App
+Parallel::Site - Parallel Perl Dancer2 App
 
 =head1 SYNOPSIS
 
@@ -36,5 +31,4 @@ L<Dancer2>
 
 =cut
 
-
-
+__END__

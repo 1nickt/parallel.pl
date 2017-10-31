@@ -1,0 +1,22 @@
+appname:     Parallel
+charset:     UTF-8
+layout:      base
+show_errors: 1
+
+site:
+    headline: Parallel Perl
+    subhead:  Do anything, concurrently.
+
+template: template_toolkit
+engines:
+    template:
+        template_toolkit:
+            DEBUG:     1
+            start_tag: '[%'
+            end_tag:   '%]'
+            PLUGINS:
+                Menu: Parallel::Site::Build::Menu
+    session:
+        Simple:
+            cookie_name: parallel.session
+

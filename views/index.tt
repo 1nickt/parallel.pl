@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="<% settings.charset %>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Parallel Perl</title>
-  <style>
-    body {
-      margin: 10;
-      background-color: #ddd;
-      font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-      font-size: 13px;
-      color: #333;
-    }
-  </style>
-</head>
-<body>
-  <div id="page">
-    <div id="content">
-      <h1>Parallel Perl</h1>
+      <h2>Parallel Perl</h2>
 
       <p>This site discusses parallel processing with Perl.</p>
 
@@ -108,11 +89,4 @@
         </li>
       </ul>
     </div>
-  </div>
-  <div id="footer">
-    <small><small>Powered by <a href="http://perldancer.org/">Dancer2</a> <% dancer_version %></small></small>
-  </div>
-<div>
-</body>
-</html>
 

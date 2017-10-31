@@ -1,0 +1,5 @@
+[% IF layout %]
+    [% INCLUDE "layouts/${layout}.tt" %]
+[% ELSE %]
+    [% INCLUDE 'layouts/main.tt' %]
+[% END %]

@@ -1,0 +1,69 @@
+/* perl.css */
+
+/* Blocks quoting the official Perl documentation */
+.perl-doc:before {
+    content: '\201c'; /* open double quotes */
+}
+
+.perl-doc {
+    border:           3px solid #c0c0c0;
+    border-radius:    4px;
+    margin:           12px;
+    padding:          8px;
+    background-color: #e6f2ff;
+    font-family:      'Times', serif;
+    font-size:        130%;
+}
+
+.perl-doc:after {
+    content: '\201d'; /* close double quotes */
+}
+
+/* Blocks displaying syntax-highlighted Perl code */
+
+.perl-code-caption {
+    width:       95%;
+    margin:      1em auto;
+}
+/* links to download perl code are styled in style.css */
+
+.perl-code {
+    border:           10px solid #c0c0c0;
+    border-radius:    8px;
+    width:            95%;
+    margin:           1em auto;
+    padding:          1em;
+    background-color: #000;
+    font-family:      'Lucida Console', monospace;
+    font-size:        100%;
+    white-space:      pre-wrap;
+}
+
+/* Class names from PPI::HTML */
+/* Colors best attempt at copying vim-perl default */
+
+.keyword   { color: #f2b90d; } /* keyword   - Gold  */
+.pragma    { color: #f2b90d; } /* pragma    - Gold  */
+.structure { color: #ffcc99; } /* structure - Tan   */
+.words     { color: #cc0000; } /* words     - Red   */
+.word      { color: #ffffff; } /* word      - White */
+.number    { color: #cc0000; } /* number    - Red   */
+.operator  { color: #f2b90d; } /* operator  - Gold  */
+.single    { color: #cc0000; } /* single    - White */
+.double    { color: #00cccc; } /* double    - Teal  */
+.symbol    { color: #00cccc; } /* symbol    - Teal  */
+.magic     { color: #00cccc; } /* magic     - Teal  */
+.separator { color: #4d4dff; } /* separator - Blue  */
+.comment   { color: #b3b3cc; } /* comment   - Grey  */
+
+/* Extra classes */
+.prompt    { color: #39e600; } /* shell prompt - neon green */
+
+
+
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE; } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }

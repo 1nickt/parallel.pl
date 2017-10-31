@@ -1,0 +1,14 @@
+$ perl inc/fork-02.pl 
+25531 child a
+25530 parent 0
+25531 child b
+25530 parent 1
+25531 child c
+25531 child d
+25530 parent 2
+25531 child e
+25531 done in 2.502s
+25530 parent 3
+25530 parent 4
+25530 parent 5
+25530 done in 4.502s

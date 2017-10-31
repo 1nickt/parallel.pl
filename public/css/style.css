@@ -1,0 +1,128 @@
+/* style.css               */
+/* Styling for parallel.pl */
+
+@charset 'UTF-8';
+
+/* below does not work */
+@include '/css/menu.css', '/css/perl.css';
+
+/* Overrides */
+code {
+    font-size:   110%;
+    font-weight: bold;
+    padding:     0px;
+}
+
+body {
+    background-color: #f9f9ff;
+    font-family:      'Lucida Grande', 'Bitstream Vera Sans', 'Verdana';
+    font-size:        13px;
+    color:            #333;
+    height:           100%;
+    min-height:       100%;
+}
+
+/* Site Headline */
+
+.site-headline-container {
+    background-color: #000000;
+}
+
+.site-headline {
+    color:       #dddddd;
+    font-size:   220%;
+    font-weight: bold;
+    padding-top: 8px;
+}
+
+.site-subhead {
+    color:          #cccccc;
+    font-size:      135%;
+    white-space:    nowrap;
+    padding-bottom: 4px;
+}
+
+.menu-container {
+    background-color: #333;
+    display:          inline-block;
+    white-space:      nowrap;
+}
+
+/* Other menu settings are in menu.css */
+
+/* Main content */
+
+.main-content-container {
+    background-color: #f9f9ff;
+}
+
+.generic-content-container {
+    padding-top: 8px;
+}
+
+.example-header:before {
+    content: 'Example: ';
+    color:   #002699;
+}
+
+.example-header {
+    font-size:   150%;
+    font-weight: bold;
+}
+
+/* links */
+
+a.offsite, a.perldoc, a.internal, a.code {
+    color:   #000000;
+    padding: 2px;
+}
+
+a.offsite:hover {
+    background-color: #ffe6e6;  /* very light red */
+}
+
+a.perldoc:hover,
+a.code:hover,
+a.internal:hover {
+    background-color: #ffffcc;  /* very light yellow */
+}
+
+a.offsite:after {
+    color:       #0000cc;
+    font-family: 'FontAwesome';
+    content:     ' ';          /* fa-external-link */
+}
+
+a.perldoc:after {
+    color:       #0000cc;
+    font-family: 'FontAwesome';
+    content:     ' ';          /* fa-book */
+}
+
+
+a.code {
+    font-family: 'Lucida Console', monospace;
+    font-style:   normal;
+}
+a.code:before {
+    display:          inline-block;
+    font-family:      'Lucida Grande', 'Bitstream Vera Sans', 'Verdana';
+    font-style:       italic;
+    font-weight:      bold;
+    color:            #666666 !important;
+    background-color: #ffffff;
+    padding-right:    .5em;
+    text-decoration:  none;
+    content:          'Program:';
+}
+a.code:after {
+    color:       #0000cc;
+    font-family: 'FontAwesome';
+    content:     ' ';          /* fa-code */
+}
+a.internal:after {
+    color:       #0000cc;
+    font-family: 'FontAwesome';
+    content:     ' ';          /* fa-link */
+}
+

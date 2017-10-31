@@ -1,0 +1,53 @@
+[% # menu-topnav.tt %]
+[%- items = [
+        [
+          'home', '/'
+        ],
+        [
+          'techniques', [
+              [ 'fork', '/fork' ],
+              [ 'threads', '/threads' ],
+          ],
+        ],
+        [
+          'about', '/about',
+        ],
+    ]
+-%]
+              <nav class="py-0 navbar navbar-inverse navbar-toggleable-md navbar-expand-sm topnav">
+                <span class="navbar-text px-2">parallel.pl </span>
+                <button class="navbar-toggler navbar-toggler-right collapsed m-0 p-0" type="button" data-toggle="collapse" data-target="#navbar-collapsing" aria-controls="navbar-collapsing" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-close close navbar-text" aria-hidden="false"></i>
+                  <i class="navbar-toggler-icon fa fa-bars navbar-text" aria-hidden="false"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-collapsing">
+                  <ul class="navbar-nav">
+[%- FOREACH item IN items %]
+  [% label = item.0; target = item.1 %]
+  [% IF target.size > 1 %]
+                    <li>
+                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        [% label %]
+                      </a>
+                      <div class="dropdown-menu topnav">
+                        <ul class="navbar-nav">
+    [%- FOREACH subitem IN target -%]
+      [% sublabel = subitem.0; subtarget = subitem.1 %]
+                          <li class="dropdown-item">
+                            <a href="[% subtarget %]">
+                              [% sublabel %]
+                            </a>
+                          </li>
+    [% END # FOREACH %]
+                        </ul>
+                      </div>
+                    </li>
+  [% ELSE %]
+                    <li class="nav-item">
+                      <a class="nav-link" href="[% target %]">[% label %]</a>
+                    </li>
+  [% END # IF %]
+[% END # FOREACH %]
+                  </ul>
+                </div>
+              </nav>

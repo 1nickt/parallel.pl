@@ -1,0 +1,70 @@
+[
+<div>
+  <p>
+    The simplest way to attain concurrency in a Perl program is to use the Perl built-in function <code>fork</code>. From the <a class="perldoc" href="https://perldoc.perl.org/functions/fork.html">documentation</a>:
+    <div class="perl-doc">
+      Does a <strong>fork(2)</strong> system call to create a new process running the same program at the same point.
+    </div>
+  </p>
+  <p>
+    From the point that you call <code>fork</code>, there will be two copies of your program running, each with its own unshared copy of all variables in the state they were at the time of the fork. This can make it easy to divide the work to be done among two or more processes.
+  </p>
+  <p>
+    <span class="example-header">Print two sets of characters</span>
+  </p>
+  <p>
+    In the following example, we have two tasks to complete: print five numbers, and print five letters, in each case preceded by our process ID. We're using <code>Time::HiRes::usleep</code> to simulate processing time.
+  </p>
+  <p>
+    First we'll execute the two subroutines in series.
+    <div class="perl-code-caption">
+      <a class="code" href="code/fork01.pl">fork01.pl</a>
+    </div>
+    <div class="perl-code">
+[% code_01 %]
+    </div>
+  </p>
+  <p>
+    Output:
+    <div class="perl-code">
+[% output_01 %]
+    </div>
+  </p>
+  <p>
+    Running the program with a single process took just over 7 seconds. Now, let's run the same program, but forking a child process to handle one of the tasks.
+  </p>
+  <p>
+    After the call to <code>fork</code>, we must test the return value to see whether we are executing the subsequent code in the parent or in the child process, and act conditionally upon that. As the <a class="perldoc" href="https://perldoc.perl.org/functions/fork.html">documentation</a> notes:
+    <div class="perl-doc">
+      [...] returns the child pid to the parent process, 0 to the child process, or "undef" if the fork is unsuccessful.
+    </div>
+    <div class="perl-code-caption">
+      <a class="code" href="code/fork02.pl">fork02.pl</a>
+    </div>
+    <div class="perl-code">
+[% code_02 %]
+    </div>
+  </p>
+  <p>
+    Output:
+    <div class="perl-code">
+[% output_02 %]
+    </div>
+  </p>
+  <p>
+    Here we can see that we have two processes, working concurrently, and that the program runs, as expected, in the time it takes to complete the longer task. In this case, an optimization of almost 36 percent in execution time! 
+  </p>
+  <p>
+    (Note that, since the final line of code, which prints the elapsed time, is outside the conditional block, it is executed in both the parent and the child.)
+  </p>
+</div>
+<div>
+  <h3>SEE ALSO</h3>
+  <div>
+    <ul>
+      <li>
+        Perl Maven's <a class="offsite" href="https://perlmaven.com/fork">write-up on <code>fork</code></a>
+      </li>
+    </ul>
+  </div>
+</div>
