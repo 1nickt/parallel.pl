@@ -1,5 +1,10 @@
 /* menu.css */
 
+/* Overrides */
+.navbar-toggler {
+    font-size: 1rem;
+}
+
 .navbar-toggler>.close {
     display:inline;
 }
@@ -8,7 +13,7 @@
     display:none;
 }
 
-.dropdown-menu {
+.dropdown-menu, .dropdown-header, .dropdown-item {
     padding: 0px;
 }
 
@@ -23,6 +28,15 @@
 
 .dropdown-menu li:hover {
    background-color: #333;
+}
+
+/* Our classes */
+
+.navbar-fixed {
+    top:      0;
+    z-index:  100;
+    position: fixed;
+    width:    100%;
 }
 
 .topnav {

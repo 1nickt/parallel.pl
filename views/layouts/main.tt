@@ -31,8 +31,8 @@
 
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row site-headline-container" onClick="window.location.assign('/')">
+    <div class="container-fluid site-headline-container" id="site-headline-container" onClick="window.location.assign('/')">
+      <div class="row">
         <div class="col">
           <div class="site-headline">
             [% settings.site.headline %]
@@ -43,15 +43,15 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid menu-container px-2 py-0">    
+    <div class="container-fluid menu-container px-2 py-0" id="menu-container">
       <div class="row">
         <div class="col">
           [%- INCLUDE 'menu-topnav.tt' -%]
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row main-content-container">
+    <div class="container-fluid main-content-container" id="main-content-container">
+      <div class="row">
         <div class="col">
           [% content -%]
         </div>
