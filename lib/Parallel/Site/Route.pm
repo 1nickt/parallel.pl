@@ -22,6 +22,12 @@ get '/' => sub {
     };
 };
 
+get '/threads' => sub {
+     template 'threads', {
+        title => 'Threads',
+    };
+};
+
 get '/about' => sub {
     template 'about', {
         title => 'About',

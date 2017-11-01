@@ -31,10 +31,13 @@
                       </a>
                       <div class="dropdown-menu topnav">
                         <ul class="navbar-nav">
+                          <li class="dropdown-header">
+                            Techniques
+                          </li>
     [%- FOREACH subitem IN target -%]
       [% sublabel = subitem.0; subtarget = subitem.1 %]
                           <li class="dropdown-item">
-                            <a href="[% subtarget %]">
+                            <a class="nav-link" href="[% subtarget %]">
                               [% sublabel %]
                             </a>
                           </li>

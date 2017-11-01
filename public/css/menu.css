@@ -8,10 +8,26 @@
     display:none;
 }
 
+.dropdown-menu {
+    padding: 0px;
+}
+
+.dropdown-menu ul {
+    display: block;
+    padding: 0px;
+}
+
+.dropdown-menu li {
+    padding-left: 10px;
+}
+
+.dropdown-menu li:hover {
+   background-color: #333;
+}
+
 .topnav {
     background-color: #333;
     float:            right;
-
 }
 
 .topnav a {
