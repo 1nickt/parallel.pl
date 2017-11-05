@@ -1,4 +1,4 @@
-[% # menu-topnav.tt %]
+[%- # menu-topnav.tt -%]
 [%- items = [
         [
           'home', '/'
@@ -13,58 +13,58 @@
           'about', '/about',
         ],
     ]
--%]
-              <!-- script to allow navbar to scroll to top and then pin it there -->
-              <script>
-                  $(document).ready(function() {
-                      $(window).scroll(function () {
-                          if ($(window).scrollTop() >= $('#site-headline-container').height()) {
-                              $('#menu-container').addClass('navbar-fixed');
-                          }
-                          if ($(window).scrollTop() < $('#site-headline-container').height()) {
-                              $('#menu-container').removeClass('navbar-fixed');
-                          }
-                      });
+%]
+          <!-- script to allow navbar to scroll to top and then pin it there -->
+          <script>
+              $(document).ready(function() {
+                  $(window).scroll(function () {
+                      if ($(window).scrollTop() >= $('#site-headline-container').height()) {
+                          $('#site-menu-container').addClass('menu-fixed');
+                      }
+                      if ($(window).scrollTop() < $('#site-headline-container').height()) {
+                          $('#site-menu-container').removeClass('menu-fixed');
+                      }
                   });
-              </script>
+              });
+          </script>
 
-              <nav class="py-0 navbar navbar-inverse navbar-toggleable-md navbar-expand-sm topnav">
-                <span class="navbar-text px-2">parallel.pl </span>
-                <button class="navbar-toggler navbar-toggler-right collapsed m-0 p-0" type="button" data-toggle="collapse" data-target="#navbar-collapsing" aria-controls="navbar-collapsing" aria-expanded="false" aria-label="Toggle navigation">
-                  <i class="fa fa-close close navbar-text" aria-hidden="false"></i>
-                  <i class="navbar-toggler-icon fa fa-bars navbar-text" aria-hidden="false"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar-collapsing">
-                  <ul class="navbar-nav">
-[%- FOREACH item IN items %]
-  [% label = item.0; target = item.1 %]
-  [% IF target.size > 1 %]
-                    <li>
-                      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        [% label %]
-                      </a>
-                      <div class="dropdown-menu topnav">
-                        <ul class="navbar-nav">
-                          <li class="dropdown-header">
-                            Techniques
-                          </li>
+          <nav id='topnav' class="py-0 navbar navbar-inverse navbar-toggleable-md navbar-expand-sm topnav">
+            <span class="navbar-text px-2">parallel.pl</span>
+            <button id="navbar-collapsing-button" class="navbar-toggler navbar-toggler-right collapsed m-0 p-0" type="button" data-toggle="collapse" data-target="#navbar-collapsing" aria-controls="navbar-collapsing" aria-expanded="false" aria-label="Toggle navigation">
+              <i id="navbar-icon-collapse" class="fa fa-close collapse navbar-text" aria-hidden="false"></i>
+              <i id="navbar-icon-expand" class="navbar-toggler-icon fa fa-bars navbar-text" aria-hidden="false"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-collapsing">
+              <ul class="navbar-nav">
+[%- FOREACH item IN items -%]
+  [%- label = item.0; target = item.1 -%]
+  [%- IF target.size > 1 %]
+                <li>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    [% label %]
+                  </a>
+                  <div class="dropdown-menu topnav"> <!-- drop-down menu -->
+                    <ul class="navbar-nav">
+                      <li class="dropdown-header">
+                        Techniques
+                      </li>
     [%- FOREACH subitem IN target -%]
-      [% sublabel = subitem.0; subtarget = subitem.1 %]
-                          <li class="dropdown-item">
-                            <a class="nav-link" href="[% subtarget %]">
-                              [% sublabel %]
-                            </a>
-                          </li>
-    [% END # FOREACH %]
-                        </ul>
-                      </div>
-                    </li>
-  [% ELSE %]
-                    <li class="nav-item">
-                      <a class="nav-link" href="[% target %]">[% label %]</a>
-                    </li>
-  [% END # IF %]
-[% END # FOREACH %]
-                  </ul>
-                </div>
-              </nav>
+      [%- sublabel = subitem.0; subtarget = subitem.1 %]
+                      <li class="dropdown-item">
+                        <a class="nav-link" href="[% subtarget %]">
+                          [% sublabel %]
+                        </a>
+                      </li>
+    [%- END # FOREACH %]
+                    </ul>
+                  </div> <!-- drop-down menu -->
+                </li>
+  [%- ELSE %]
+                <li class="nav-item">
+                  <a class="nav-link" href="[% target %]">[% label %]</a>
+                </li>
+  [%- END # IF -%]
+[%- END # FOREACH %]
+              </ul>
+            </div> <!-- navbar-collapsing -->
+          </nav>

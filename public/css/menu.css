@@ -5,11 +5,11 @@
     font-size: 1rem;
 }
 
-.navbar-toggler>.close {
+.navbar-toggler>.collapse {
     display:inline;
 }
 
-.navbar-toggler.collapsed>.close, .navbar-toggler:not(.collapsed)>.navbar-toggler-icon {
+.navbar-toggler.collapsed>.collapse, .navbar-toggler:not(.collapsed)>.navbar-toggler-icon {
     display:none;
 }
 
@@ -32,11 +32,9 @@
 
 /* Our classes */
 
-.navbar-fixed {
+.menu-fixed {
     top:      0;
-    z-index:  100;
     position: fixed;
-    width:    100%;
 }
 
 .topnav {
@@ -60,8 +58,26 @@
 
 .topnav .navbar-text {
     display: inline;
-    padding: 0px 0px;
-    color: #f2f2f2;
+    padding: 0px;
+    color:   #f2f2f2;
+}
+
+.pagenav .navbar-text {
+    display: inline;
+    padding: 0px;
+}
+
+.pagenav {
+    padding:          2px 15px;
+    background-color: #f2f2f2;
+}
+
+.pagenav li {
+    padding: 0px 8px;
+}
+
+.pagenav li:hover {
+/*    background-color: */
 }
 
 

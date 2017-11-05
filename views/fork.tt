@@ -1,2 +1,71 @@
-<h1>fork</h1>
-[% INCLUDE 'fork-basics.tt' %]
+[%- # fork.tt %]
+          <!-- script to move page menu container inside site menu container -->
+          <!-- when latter is pinned. Triggered on scroll. -->
+          <script>
+              function positionPageMenu() {
+                  var siteMenu = $('#site-menu-container');
+                  var pageHead = $('#page-headline-container');
+                  var pageMenu = $('#page-menu-container');
+
+
+                      // Don't pin/unpin if site menu is not pinned
+                      if ( !siteMenu.hasClass('menu-fixed') ) {
+                           pageHead.append( pageMenu );
+                           return;
+                      }
+
+                      // Pin to bottom of site menu if site menu is pinned
+                      if ( siteMenu.hasClass('menu-fixed') ) {
+                          siteMenu.append( pageMenu );
+                          return;
+                      }
+
+              }
+
+              $(document).ready(function() {
+                  $(window).scroll( function() { positionPageMenu() });
+              });
+
+          </script>
+
+          <div class="page-headline-container container-fluid" id="page-headline-container">
+            <div class="row">
+              <div class="col">
+                <h2>fork</h2>
+              </div>
+            </div>
+            <div class="row" id="page-menu-container">
+              <div class="col p-0">
+                <nav class="navbar navbar-expand-sm pagenav">
+                  <span class="navbar-text p-0">fork</span>
+                  <button class="navbar-toggler collapsed py-0 px-1 mr-auto" type="button" data-toggle="collapse" data-target="#pagenav-collapsing" aria-controls="pagenav-collapsing" aria-expanded="false" aria-label="Toggle page navigation">
+                    <i class="fa fa-close collapse navbar-text" aria-hidden="false"></i>
+                    <i class="navbar-toggler-icon fa fa-bars navbar-text p-0" aria-hidden="false"></i>
+                  </button>
+                  <div class="collapse navbar-collapse" id="pagenav-collapsing">
+                    <ul class="navbar-nav">
+                      <li class="active">
+                        <a data-toggle="tab" href="#basics">basics</a>
+                      </li>
+                      <li>
+                        <a data-toggle="tab" href="#waiting">waiting</a>
+                      </li>
+                      <li>
+                        <a data-toggle="tab" href="#forkbomb">forkbomb</a>
+                      </li>
+                      <li>
+                        <a data-toggle="tab" href="#managers">fork managers</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+            </div> <!-- page-menu-container -->
+          </div> <!-- page-headline-container -->
+
+          <div id="page-content-container" data-offset="-100" data-spy="scroll" data-target=".pagenav">
+            [% INCLUDE 'fork-basics.tt' %]
+            <hr>
+            [% INCLUDE 'fork-waiting.tt' %]
+            <hr>
+          </div>

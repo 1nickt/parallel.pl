@@ -26,6 +26,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
+    <!-- Various libraries -->
+
     <!-- form validator -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script> -->
 
@@ -40,22 +42,24 @@
           <div class="site-subhead">
             [% settings.site.subhead %]
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-fluid menu-container px-2 py-0" id="menu-container">
+        </div> <!-- col -->
+      </div> <!-- row -->
+    </div> <!-- site-headline-container -->
+
+    <div class="container-fluid site-menu-container px-2 py-0" id="site-menu-container">
       <div class="row">
-        <div class="col">
+        <div class="col" id="site-menu-container-col">
           [%- INCLUDE 'menu-topnav.tt' -%]
         </div>
       </div>
-    </div>
-    <div class="container-fluid main-content-container" id="main-content-container">
+    </div> <!-- menu-container -->
+
+    <div class="container-fluid main-content-container">
       <div class="row">
         <div class="col">
           [% content -%]
-        </div>
-      </div>
-    </div>
+        </div> <!-- col -->
+      </div> <!-- row -->
+    </div> <!-- main-content-container -->
   </body>
 </html>

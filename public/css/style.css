@@ -42,18 +42,25 @@ body {
     padding-bottom: 4px;
 }
 
-.menu-container {
+.site-menu-container {
     background-color: #333;
     display:          inline-block;
     white-space:      nowrap;
+    z-index:          999999;
 }
 
 /* Other menu settings are in menu.css */
 
 /* Main content */
 
-.main-content-container {
+.main-content-container, .page-menu-container {
     background-color: #f9f9ff;
+    width:            100%;
+}
+
+.page-menu-container {
+    background-color: #f9f9ff;
+    z-index:          999;
 }
 
 .generic-content-container {
