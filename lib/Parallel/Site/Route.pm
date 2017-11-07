@@ -5,7 +5,7 @@ Parallel::Site::Route - The route handler loader
 =cut
 
 use Dancer2;
-use Module::Runtime qw/ require_module /;
+use Module::Load;
 
 my $base = 'Parallel::Site::Route::';
 
@@ -14,7 +14,7 @@ my %required_modules = (
     'Contact'    => 0,
 );
 
-require_module( $base . $_ ) for grep { $required_modules{ $_ } == 1 } ( keys %required_modules );
+load( $base . $_ ) for grep { $required_modules{ $_ } == 1 } ( keys %required_modules );
 
 get '/' => sub {
     template 'index', {

@@ -3,8 +3,8 @@ use Test::More;
 use Plack::Test;
 use HTTP::Request::Common;
 
-use MDA;
-my $app = 'MDA'->to_app;
+use Parallel::Site;
+my $app = 'Parallel::Site'->to_app;
 my $test = Plack::Test->create( $app );
 
 {
