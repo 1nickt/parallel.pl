@@ -5,8 +5,9 @@
         ],
         [
           'techniques', [
-              [ 'fork', '/fork' ],
+              [ 'fork',    '/fork'    ],
               [ 'threads', '/threads' ],
+              [ 'mce',     '/mce'     ],
           ],
         ],
         [

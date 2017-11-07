@@ -46,7 +46,7 @@
       </div> <!-- row -->
     </div> <!-- site-headline-container -->
 
-    <div class="container-fluid site-menu-container px-2 py-0" id="site-menu-container">
+    <div class="container-fluid site-menu-container px-2 py-t-1" id="site-menu-container">
       <div class="row">
         <div class="col" id="site-menu-container-col">
           [%- INCLUDE 'menu-topnav.tt' -%]
@@ -54,7 +54,7 @@
       </div>
     </div> <!-- menu-container -->
 
-    <div class="container-fluid main-content-container">
+    <div class="container-fluid main-content-container" id="main-content-container">
       <div class="row">
         <div class="col">
           [% content -%]

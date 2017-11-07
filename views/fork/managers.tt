@@ -1,0 +1,16 @@
+[%- # fork/managers.tt -%]
+<div id="managers">
+  <p>
+    Keeping track of all those process IDs and forked child processes is tiresome and error-prone. Fortunately there are a number of tools that provide fork management.
+  </p>
+  <div>
+    <ul>
+      <li>
+        <code><a class="offsite" href="https://metacpan.org/Parallel::ForkManager">Parallel::ForkManager</a></code><br>
+        Fabulously simple and effective manager.
+      </li>
+    </ul>
+  </div>
+  <h4>SEE ALSO</h4>
+</div>
+<!-- end fork/waiting.tt -->

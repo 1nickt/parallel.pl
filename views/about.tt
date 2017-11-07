@@ -2,19 +2,15 @@
 
 <div>
   <p>
-    This site was created to promote the Multi-Core Engine for Perl by Mario Roy.
+    This site was created to promote the use of Perl by demonstrating its suitability for parallel-processing tasks.
   </p>
   <p>
-    The editors believe that Perl is an excellent choice for parallel-process computing, but that long-ago past limitations have created a false impression among some developers that it is not well-suited to the task. The MCE libraries provide an easy and standard concurrency implementation, whether the compiling Perl is built with or without threads or running on Windows or a Unix-like OS, and including shared variables of all kinds.
-  </p>
-  <p>
-    The website is proudly built in <a class="offsite" href="http://perl.org">Perl</a> with <a class="offsite cpan" href="https://metacpan.org/Template">Template::Toolkit</a> on <a class="offsite cpan" href="https://metacpan.org/Dancer2">Dancer2</a>. Code syntax highlighting is done with <a class="offsite cpan" href="https://metacpan.org/PPI-Prettify">PPI::Prettify</a> by David Farrell and <code>sunburst.css</code>, originally by the Google.
+    The website is proudly built in <a class="offsite" href="http://perl.org">Perl</a> with <a class="offsite cpan" href="https://metacpan.org/Template">Template::Toolkit</a> on <a class="offsite cpan" href="https://metacpan.org/Dancer2">Dancer2</a>. Code syntax highlighting is done with <a class="offsite cpan" href="https://metacpan.org/PPI-HTML">PPI::HTML</a>.
   </p>
   <hr>
-  <div style="float: middle; text-align: center; width: 70%">
+  <div class="content-justify-center">
     <small>
-      All content is copyright &copy; 2017 Nick Tonkin. All rights are reserved.<BR>
-      "Parallel Perl" and "Do anything, concurrently." are registered trademarks and may not be used without the express written permission of the publishers.
+      All content is copyright &copy; 2017 Nick Tonkin and other contributors. All rights are reserved. "Parallel Perl" and "Do anything, concurrently." are registered trademarks and may not be used without the express written permission of the publishers.
     </small>
   </div>
 </div>

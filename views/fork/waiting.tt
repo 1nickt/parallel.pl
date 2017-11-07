@@ -1,0 +1,8 @@
+[%- # fork/waiting.tt -%]
+<div id="waiting">
+  <p>
+    If you don't wait for your processes to finish before exiting, you may accumulate so-called 'zombie processes.'
+  </p>
+  <h4>SEE ALSO</h4>
+</div>
+<!-- end fork/waiting.tt -->

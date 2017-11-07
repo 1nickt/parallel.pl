@@ -1,0 +1,10 @@
+<h1>Perl MCE</h1>
+
+<div>
+  <p>
+    This site was created to promote the Multi-Core Engine for Perl by Mario Roy.
+  </p>
+  <p>
+    The editors believe that Perl is an excellent choice for parallel-process computing, but that long-ago past limitations have created a false impression among some developers that it is not well-suited to the task. The MCE libraries provide an easy and standard concurrency implementation, whether the compiling Perl is built with or without threads or running on Windows or a Unix-like OS, and including shared variables of all kinds.
+  </p>
+</div>

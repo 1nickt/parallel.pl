@@ -1,0 +1,14 @@
+[%- # fork/bomb.tt -%]
+<div id="bomb">
+  <p>
+    It's easy to fork a process in Perl, as we have seen. It can be too easy, if you are careless. Each process consumes system resources, and if you fork a process for each file in a directory that must be processed, for example, you can quickly bring your computer to a halt.
+  </p>
+  <p>
+    This is called a <c>fork bomb</c>. Try to avoid it.
+  </p>
+  <h4>SEE ALSO</h4>
+  <p>
+    <a class='internal' href='/fork/managers'>Fork managers</a> for a discussion of some tools that can help you manage your forked processes to avoid fork bombs.
+  </p>
+</div>
+<!-- end fork/waiting.tt -->

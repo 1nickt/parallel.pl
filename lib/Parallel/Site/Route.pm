@@ -28,6 +28,12 @@ get '/threads' => sub {
     };
 };
 
+get '/mce' => sub {
+     template 'mce', {
+        title => 'Perl Multi-Core Engine',
+    };
+};
+
 get '/about' => sub {
     template 'about', {
         title => 'About',

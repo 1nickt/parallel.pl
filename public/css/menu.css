@@ -68,16 +68,30 @@
 }
 
 .pagenav {
-    padding:          2px 15px;
-    background-color: #f2f2f2;
+    padding:          1px 15px;
+    background-color: #e6e6e6;
+    justify-content:  left;
 }
 
 .pagenav li {
-    padding: 0px 8px;
+    padding: 0px;
 }
 
-.pagenav li:hover {
-/*    background-color: */
+.pagenav a {
+    padding:              2px;
+    font-size:           11px;
+    color:               #333;
 }
 
+.pagenav a.active {
+    background-color: #f9f9ff !important;
+}
 
+.pagenav a:hover {
+    background-color: #333;
+    color:            #f2f2f2;
+}
+
+.pagenav a.active:hover {
+    color: #333;
+}

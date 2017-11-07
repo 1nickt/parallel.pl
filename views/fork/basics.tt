@@ -1,3 +1,4 @@
+[%- # fork/basics.tt -%]
 <div id="basics">
   <p>
     The simplest way to attain concurrency in a Perl program is to use the Perl built-in function <code>fork</code>. From the <a class="perldoc" href="https://perldoc.perl.org/functions/fork.html">documentation</a>:
@@ -56,14 +57,15 @@
   <p>
     (Note that, since the final line of code, which prints the elapsed time, is outside the conditional block, it is executed in both the parent and the child.)
   </p>
-</div>
-<div>
-  <h3>SEE ALSO</h3>
   <div>
-    <ul>
-      <li>
-        Perl Maven's <a class="offsite" href="https://perlmaven.com/fork">write-up on <code>fork</code></a>
-      </li>
-    </ul>
+    <h3>SEE ALSO</h3>
+    <div>
+      <ul>
+        <li>
+          Perl Maven's <a class="offsite" href="https://perlmaven.com/fork">write-up on <code>fork</code></a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</div> <!-- tab-pane -->
+<!-- end fork-basics.tt -->

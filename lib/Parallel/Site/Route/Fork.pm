@@ -1,6 +1,6 @@
 =head1 NAME
 
-Parallel::Site::Route::Fork - Handles /fork
+Parallel::Site::Route::Fork - Handles /fork and /fork/*
 
 =cut
 
@@ -8,17 +8,46 @@ package Parallel::Site::Route::Fork;
 
 use Dancer2 appname => 'Parallel::Site';
 use Path::Tiny;
-#use PPI::Prettify;
 use PPI::HTML;
 use FindBin qw/ $RealBin /;
 
 get '/fork' => sub {
+    forward '/fork/basics';
+};
+
+get '/fork/basics' => sub {
     return template 'fork', {
-        title     => 'fork',
-        code_01   => _codify('fork-01.pl'),
-        output_01 => _codify('fork-01.pl.out'),
-        code_02   => _codify('fork-02.pl'),
-        output_02 => _codify('fork-02.pl.out'),
+        title            => 'fork : the basics',
+        subhead          => 'the basics',
+        include_template => 'fork/basics.tt',
+        code_01          => _codify('fork-01.pl'),
+        output_01        => _codify('fork-01.pl.out'),
+        code_02          => _codify('fork-02.pl'),
+        output_02        => _codify('fork-02.pl.out'),
+    };
+};
+
+get '/fork/waiting' => sub {
+    return template 'fork', {
+        title            => 'fork : waiting',
+        subhead          => 'waiting',
+        include_template => 'fork/waiting.tt',
+    };
+};
+
+get '/fork/bomb' => sub {
+    return template 'fork', {
+        title            => 'fork : bomb',
+        subhead          => 'bomb',
+        include_template => 'fork/bomb.tt',
+    };
+};
+
+get '/fork/managers' => sub {
+    return template 'fork', {
+        title            => 'fork : managers',
+        subhead          => 'managers',
+        include_template => 'fork/managers.tt',
     };
 };
 

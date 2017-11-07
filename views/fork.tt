@@ -1,4 +1,12 @@
-[%- # fork.tt %]
+[%- # fork.tt -%]
+[%- items = [
+        [ 'basics',        '/fork/basics' ],
+        [ 'waiting',       '/fork/waiting' ],
+        [ 'fork bomb',     '/fork/bomb' ],
+        [ 'fork managers', '/fork/managers' ],
+    ]
+%]
+
           <!-- script to move page menu container inside site menu container -->
           <!-- when latter is pinned. Triggered on scroll. -->
           <script>
@@ -7,18 +15,17 @@
                   var pageHead = $('#page-headline-container');
                   var pageMenu = $('#page-menu-container');
 
+                  // Don't pin/unpin if site menu is not pinned
+                  if ( !siteMenu.hasClass('menu-fixed') ) {
+                       pageHead.append( pageMenu );
+                       return;
+                  }
 
-                      // Don't pin/unpin if site menu is not pinned
-                      if ( !siteMenu.hasClass('menu-fixed') ) {
-                           pageHead.append( pageMenu );
-                           return;
-                      }
-
-                      // Pin to bottom of site menu if site menu is pinned
-                      if ( siteMenu.hasClass('menu-fixed') ) {
-                          siteMenu.append( pageMenu );
-                          return;
-                      }
+                  // Pin to bottom of site menu if site menu is pinned
+                  if ( siteMenu.hasClass('menu-fixed') ) {
+                      siteMenu.append( pageMenu );
+                      return;
+                  }
 
               }
 
@@ -29,43 +36,47 @@
           </script>
 
           <div class="page-headline-container container-fluid" id="page-headline-container">
-            <div class="row">
-              <div class="col">
-                <h2>fork</h2>
-              </div>
-            </div>
             <div class="row" id="page-menu-container">
               <div class="col p-0">
-                <nav class="navbar navbar-expand-sm pagenav">
-                  <span class="navbar-text p-0">fork</span>
-                  <button class="navbar-toggler collapsed py-0 px-1 mr-auto" type="button" data-toggle="collapse" data-target="#pagenav-collapsing" aria-controls="pagenav-collapsing" aria-expanded="false" aria-label="Toggle page navigation">
-                    <i class="fa fa-close collapse navbar-text" aria-hidden="false"></i>
-                    <i class="navbar-toggler-icon fa fa-bars navbar-text p-0" aria-hidden="false"></i>
+
+                <nav class="py-0 navbar navbar-expand-sm navbar-toggleable-md pagenav" id="pagenav">
+                  <span class="navbar-text px-2">fork</span>
+                  <button class="navbar-toggler navbar-toggler-right collapsed m-0 p-0"
+                          type="button"
+                          data-toggle="collapse"
+                          data-target="#pagenav-collapsing"
+                          id="navbar-collapsing-button">
+                    <i id="navbar-icon-collapse" class="fa fa-close collapse navbar-text"></i>
+                    <i id="navbar-icon-expand" class="navbar-toggler-icon fa fa-bars navbar-text"></i>
                   </button>
                   <div class="collapse navbar-collapse" id="pagenav-collapsing">
                     <ul class="navbar-nav">
-                      <li class="active">
-                        <a data-toggle="tab" href="#basics">basics</a>
+[%- FOREACH item IN items -%]
+  [%- label = item.0; target = item.1 -%]
+                      <li class="nav-item">
+                        <a class="nav-link" href="[% target %]">[% label %]</a>
                       </li>
-                      <li>
-                        <a data-toggle="tab" href="#waiting">waiting</a>
-                      </li>
-                      <li>
-                        <a data-toggle="tab" href="#forkbomb">forkbomb</a>
-                      </li>
-                      <li>
-                        <a data-toggle="tab" href="#managers">fork managers</a>
-                      </li>
+[%- END # FOREACH %]
                     </ul>
-                  </div>
-                </nav>
-              </div>
-            </div> <!-- page-menu-container -->
-          </div> <!-- page-headline-container -->
+                  </div> <!-- #page-collapsing -->
+                </div> <!-- .pagenav -->
+              </div> <!-- .col -->
+            </div> <!-- .row #page-menu-container -->
+          </div> <!-- .container #page-headline-container -->
 
-          <div id="page-content-container" data-offset="-100" data-spy="scroll" data-target=".pagenav">
-            [% INCLUDE 'fork-basics.tt' %]
-            <hr>
-            [% INCLUDE 'fork-waiting.tt' %]
-            <hr>
+          <div class="container-fluid">
+<!--
+          <div class="row">
+              <div class="col">
+                <div id="page-content-container">
+-->
+                  <h2>fork <small>: [% subhead %]</small></h2>
+                    [% INCLUDE $include_template %]
+
+<!--
+                </div>
+              </div>
+            </div>
           </div>
+-->
+

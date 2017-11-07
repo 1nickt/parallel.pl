@@ -1,15 +1,10 @@
 use strict; use warnings; use Data::Dumper; ++$Data::Dumper::Sortkeys;
+use feature 'say';
 
 package Parallel::Site;
 
 use Dancer2;
 use Parallel::Site::Route;
-
-1; # return true
-
-__END__
-
-
 
 1; # return true
 

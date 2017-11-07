@@ -49,6 +49,12 @@ body {
     z-index:          999999;
 }
 
+/* Page headline container contains the page isections menu as well as the headline */
+
+#page-headline-container {
+    padding: 0px !important;
+}
+
 /* Other menu settings are in menu.css */
 
 /* Main content */
