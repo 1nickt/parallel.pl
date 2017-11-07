@@ -49,7 +49,7 @@
     <div class="container-fluid site-menu-container px-2 py-t-1" id="site-menu-container">
       <div class="row">
         <div class="col" id="site-menu-container-col">
-          [%- INCLUDE 'menu-topnav.tt' -%]
+          [%- INCLUDE 'menu.tt' -%]
         </div>
       </div>
     </div> <!-- menu-container -->
