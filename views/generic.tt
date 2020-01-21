@@ -1,0 +1,4 @@
+[%# Generic template to fit in main layout for pages that don't merit a menu item %]
+<div class="generic-content-container">
+[% content %]
+</div>

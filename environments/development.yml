@@ -1,0 +1,9 @@
+show_errors   : 1
+
+appname     : ExampleApp
+charset     : UTF-8
+log         : debug
+
+plugins :
+    Debugger :
+        enabled : 1

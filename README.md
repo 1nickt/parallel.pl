@@ -1,6 +1,6 @@
 ## Parallel Perl Dancer2 app
 
-Website dedicated to sharing information about parallel-process computing with Perl.
+Website dedicated to sharing information about parallel computing with the Perl Many-Core Engine
 
 ### To use:
 

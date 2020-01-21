@@ -1,0 +1,186 @@
+html {
+  height: 100%;
+}
+
+.body {
+  height:           100%;
+  font-family:      Verdana,Arial,Helvetica,sans-serif;
+  font-size:        10pt;
+  color:            #333;
+  background-color: #fff;
+  margin:           0;
+  display:          block;
+  box-sizing:       border-box;
+}
+
+/* Banner */
+
+.banner-container {
+  background:    #f9f9ff;
+  border-bottom: 1px solid #ccc;
+}
+
+.banner-headline {
+  font-family: 'Courier New',Courier,sans-serif;
+  color:        black;
+  font-size:    365%;
+  font-weight:  bold;
+  padding-left: 8px;
+  padding-top:  8px;
+}
+
+.banner-subhead {
+  color:        #7c837c;
+  font-size:    140%;
+  padding-left: 8px;
+  padding-top:  2px;
+}
+
+/* Menu */
+
+.menu-container {
+  color:         #7c837c;
+  padding-top:   2px;
+  padding-right: 2px;
+  float:         right;
+}
+
+a.menu-link:link, a.menu-link:visited {
+  color: #7c837c;
+}
+
+a.menu-link:hover, a.menu-link:active {
+  color: #000000;
+}
+
+/* Main content */
+
+.main-content-container {
+  height:  100%;
+  width:   100%;
+  padding: 10px;
+}
+
+.generic-content-container {
+  padding-top: 8px;
+}
+
+.contact-container {
+  width: 90%;
+}
+
+.left-sidebar-panel {
+  display: inline-block;
+  width:   min-content;
+}
+
+.center-panel {
+  display: inline-block;
+  padding: 10px;
+}
+
+.current-versions-container {
+  font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;
+  font-size:   9pt;
+  margin:      4px;
+}
+
+.what-is-container {
+  border:     1px solid black;
+  margin:     4px;
+  padding:    8px;
+  background: #fff0b3;
+  text-align: center;
+}
+
+.frob-container {
+  content:                 ' ';
+  display:                 block;
+  background:              url('/images/Hvalfjörður.jpg') no-repeat center center fixed;
+  background-position:     center;
+  height:                  100vh;
+  width:                   100vw;
+  top:                     0;
+  bottom:                  0;
+  left:                    0;
+  right:                   0;
+  position:                relative;
+  z-index:                 -10;
+  background-size:         cover;
+  -moz-background-size:    cover;
+  -o-background-size:      cover;
+  -webkit-background-size: cover;
+  text-shadow:             1px 0px 0px #ffffff, 1px 1px 0px #ffffff, 1px -1px 0px #ffffff, 0px 1px 0px #ffffff, 0px -1px 0px #ffffff, -1px 0px 0px #ffffff, -1px 1px 0px #ffffff, -1px -1px 0px #ffffff;
+  padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.current-versions-table table, tbody, th, tr, td {
+  margin:          0;
+  padding:         4px;
+  border:          1px solid black;
+}
+
+.current-versions-table {
+    background: #e6f2ff;
+}
+
+
+/* Blog */
+
+.blog-post-container {
+  width: 95%;
+}
+
+.blog-post-body {
+  padding: 5px;
+  border:  1px solid #f9f9ff;
+}
+
+.blog-post-footer {
+  font-size:  60%;
+  margin-top: 4px;
+  padding:    2px;
+  border:     1px solid #f9f9ff;
+}
+
+.vtop {
+  vertical-align: top;
+}
+
+.noborder {
+  border: 0;
+}
+
+/* force all other columns to be as small as possible */
+.expander {
+  width: 99%;
+}
+
+/* Don't let expander make us wrap */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Error messages */
+
+.error {
+  font-size: 80%;
+  font-weight: bold;
+  color: red;
+}
+
+
+/* Footer */
+
+.footer {
+  position:     fixed;
+  bottom:       2px;
+  width:        100%;
+  padding-left: 8px;
+  background:    #f9f9ff;
+  border-top: 1px solid #ccc;
+}

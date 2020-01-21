@@ -1,126 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="<% settings.charset %>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Parallel Perl</title>
-  <style>
-    body {
-      margin: 10;
-      background-color: #ddd;
-      font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
-      font-size: 13px;
-      color: #333;
-    }
-  </style>
+<!-- begin left sidebar -->
+<span class="left-sidebar-panel vtop">
+  <div class="current-versions-container">
+    <table class="current-versions-table">
+      <tr>
+        <th colspan="3" style="background: #00264d; color: #fff0b3" class="nowrap">
+          Current stable software versions
+        </th>
+      </tr>
+      <tr style="background: #cce6ff">
+        <td>Package</td>
+        <td>Version</td>
+        <td>Release date</td>
+      </tr>
+      <tr>
+        <td>MCE</td>
+        <td>[% mce_meta.mce.version %]</td>
+        <td>[% mce_meta.mce.release_date %]</td>
+      </tr>
+      <tr>
+        <td>MCE::Shared</td>
+        <td>[% mce_meta.mce_shared.version %]</td>
+        <td>[% mce_meta.mce_shared.release_date %]</td>
+      </tr>
+    </table>
+  </div>
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="theme-color" content="#ffffff">
-
-</head>
-<body>
-  <div id="page">
-    <div id="content">
-      <h1>Parallel Perl</h1>
-
-      <p>This site discusses parallel processing with Perl.</p>
-
-      Perl is a great choice for parallel-process computing!
-
-      <ul>
-        <li>
-          Forking
-          <ul>
-            <li>
-              <a href="https://perldoc.perl.org/functions/fork.html">fork</a> - Perl built-in function
-            </li>
-            <li>
-              Fork managers
-              <ul>
-                <li>
-                  <a href="https://metacpan.org/pod/Parallel::ForkManager">Parallel::ForkManager</a> - A simple parallel processing fork manager
-                </li>
-                <li>
-                  ...
-                </li>
-              </ul>
-            </li>
-            <li>
-              ...
-            </li>
-          </ul>
-        </li>
-        <li>
-          Threads
-          <ul>
-            <li>
-              <a href="https://metacpan.org/pod/threads">threads.pm</a> - Perl interpreter-based threads
-              <ul>
-                <li>
-                  Unnecessarily discouraged!
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://metacpan.org/pod/Thread::Queue">Thread::Queue</A>
-            </li>
-            <li>
-              ...
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="https://metacpan.org/pod/MCE">MCE</a> - Many-Core Engine for Perl
-          <ul>
-            <li>
-              Bank queueing model using a worker pool
-            </li>
-            <li>
-              Chunking
-            </li>
-            <li>
-              ...
-            </li>
-          </ul>
-        </li>
-        <li>
-          Shared variables
-          <ul>
-            <li>
-              <a href="https://metacpan.org/pod/MCE::Shared">MCE::Shared</a>
-            <li>
-              Supporting forked processes or threads or Win32 pseudo-forking
-            </li>
-            <li>
-              ...
-            </li>
-          </ul>
-        </li>
-        <li>
-          Applied tools
-          <ul>
-            <li>
-              <a href="https://metacpan.org/pod/Net::OpenSSH::Parallel">Net::OpenSSH::Parallel</a> - Run SSH jobs in parallel
-            </li>
-            <li>
-              ...
-            </li>
-          </ul>
-        </li>
-        <li>
-          ...
-        </li>
-      </ul>
+  <div class="what-is-container">
+    <div style="background: #fffae6; color: #00264d; font-size: 120%; width=100%">
+      What is MCE?
+    </div>
+    <div style="margin-top: 8px">
+      The Perl Many-Core Engine is a simple, powerful framework for bringing parallel execution and high-performance concurrency to Perl programs.
     </div>
   </div>
-  <div id="footer">
-    <small><small>Powered by <a href="http://perldancer.org/">Dancer2</a> <% dancer_version %></small></small>
-  </div>
-<div>
-</body>
-</html>
+</span>
+<!-- end left sidebar -->
 
+<!-- begin center panel -->
+<span class="center-panel vtop">
+  <P>hello, world</P>
+</span>
+<!-- end center panel -->

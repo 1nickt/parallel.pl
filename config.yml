@@ -1,0 +1,34 @@
+session  : CHI
+template : template_toolkit
+layout   : main
+logger   : LogAny
+
+plugins :
+    Plugin: 1
+    Redis :
+        server : localhost:6379
+    'Cache::CHI' :
+        driver : Redis
+        global : 1
+
+engines :
+    template :
+        template_toolkit :
+            ENCODING : utf8
+
+    logger:
+        LogAny:
+            category: MDA
+            logger:
+                - File
+                - /tmp/MDA-app.log
+
+    session :
+       CHI:
+            driver           : Redis
+            namespace        : MDA
+            cookie_name      : session_id
+            cookie_duration  : 86400
+            session_duration : 86400
+            is_secure        : 0
+            is_http_only     : 1

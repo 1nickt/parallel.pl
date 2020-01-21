@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="[% settings.charset %]">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61195639-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-61195639-2');
+    </script>
+    <!-- end gtag.js -->
+
+    <!-- Grab jQuery from a CDN, fall back to local if necessary -->
+    <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">/* <![CDATA[ */
+        !window.jQuery && document.write('<script type="text/javascript" src="[% request.uri_base %]/javascripts/jquery.js"><\/script>')
+    /* ]]> */</script>
+
+    <!-- form validator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <title>parallel.pl - MCE.pm, the Perl Many-Core Engine</title>
+
+  </head>
+  <body class="body">
+    <div class="banner-container" onClick="window.location.assign('/')">
+      <div class="banner-headline">parallel.pl</div>
+      <div class="banner-subhead">MCE, the Perl Many-Core Engine</div>
+      <div class="menu-container">[% INCLUDE 'menu.tt' %]</div>
+    </div>
+    <div class="main-content-container">
+[% content %]
+    </div>
+    <div class="footer">
+      <small><small><small>Website built with <a href="http://perldancer.org">Perl Dancer</a></small></small></small>
+    </div>
+  </body>
+</html>
