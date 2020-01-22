@@ -1,6 +1,6 @@
-show_errors : 1
+show_errors : 0
 log         : debug
 
 plugins :
     Debugger :
-        enabled : 1
+        enabled : 0
