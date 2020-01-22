@@ -45,11 +45,11 @@ html {
   float:         right;
 }
 
-a.menu-link:link, a.menu-link:visited {
+a:link, a:visited {
   color: #7c837c;
 }
 
-a.menu-link:hover, a.menu-link:active {
+a:hover, a:active {
   color: #000000;
 }
 
@@ -168,9 +168,9 @@ table {
 /* Error messages */
 
 .error {
-  font-size: 80%;
+  font-size:   80%;
   font-weight: bold;
-  color: red;
+  color:       red;
 }
 
 
@@ -180,7 +180,9 @@ table {
   position:     fixed;
   bottom:       2px;
   width:        100%;
+  height:       min-content;
   padding-left: 8px;
-  background:    #f9f9ff;
-  border-top: 1px solid #ccc;
+  background:   #f9f9ff;
+  border-top:   1px solid #ccc;
+  color:        #7c837c;
 }

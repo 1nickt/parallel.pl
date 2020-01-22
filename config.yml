@@ -8,13 +8,15 @@ plugins :
     Redis :
         server : localhost:6379
     'Cache::CHI' :
-        driver : Redis
-        global : 1
+        namespace : MDA
+        driver    : Redis
+        global    : 1
 
 engines :
     template :
         template_toolkit :
-            ENCODING : utf8
+            ENCODING  : utf8
+            EVAL_PERL : 1
 
     logger:
         LogAny:

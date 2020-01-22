@@ -30,7 +30,7 @@
       What is MCE?
     </div>
     <div style="margin-top: 8px">
-      The Perl Many-Core Engine is a simple, powerful framework for bringing parallel execution and high-performance concurrency to Perl programs.
+      The Perl Many-Core Engine is a simple, powerful framework for bringing parallel execution and high-performance concurrency to Perl code.
     </div>
   </div>
 </span>

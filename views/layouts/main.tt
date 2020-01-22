@@ -39,7 +39,14 @@
 [% content %]
     </div>
     <div class="footer">
-      <small><small><small>Website built with <a href="http://perldancer.org">Perl Dancer</a></small></small></small>
+      <small><small><small>
+        Website built with <a href="http://perldancer.org">Perl Dancer2</a>
+        <a href="https://metacpan.org/release/Dancer2">v.[% PERL %]print $Dancer2::VERSION;[% END %]</a>.
+        &copy; 2018-[% PERL %]use Time::Piece; print gmtime->year[% END %]
+        <a href="https://nicktonkin.net" style="font-family: monospace; text-decoration: none">
+          $website->{backend}->solutions();
+        </a>
+      </small></small></small>
     </div>
   </body>
 </html>
