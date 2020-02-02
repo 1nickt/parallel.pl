@@ -1,0 +1,10 @@
+{
+   "mce_shared" : {
+      "release_date" : "2019-12-04",
+      "version" : "1.863"
+   },
+   "mce" : {
+      "release_date" : "2019-12-26",
+      "version" : "1.864"
+   }
+}
