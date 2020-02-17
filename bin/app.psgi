@@ -11,8 +11,8 @@ BEGIN {
 
 my $debugger = Dancer2::Debugger->new;
 
-use MDA;
-my $app = MDA->to_app;
+use MDA::App;
+my $app = MDA::App->to_app;
 
 builder {
     $debugger->mount;

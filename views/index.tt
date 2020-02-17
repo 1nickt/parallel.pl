@@ -22,6 +22,48 @@
         <td>[% mce_meta.mce_shared.version %]</td>
         <td>[% mce_meta.mce_shared.release_date %]</td>
       </tr>
+      <th colspan="3">
+        <div id="release-list-header" class="nowrap">
+          Subscribe to release announcements
+        </div>
+        <script>
+          $(document).ready( function () {
+              $("#release-list-form")[0].reset();
+
+              $("#release-list-form").submit( function (event) {
+                  $("#release-list-form").validate();
+
+                  event.preventDefault(); // Stop form from submitting normally
+
+                  var params  = $("#release-list-form").serialize();
+                  var request = $.post("/list-subscribe/mce-release-announce", params, "json");
+
+                  request.done( function (response) {
+                      var div = $("#release-list-container");
+                      var width = div.width();
+                      div.css('padding', '4');
+                      div.width( width - 8 );
+                      div.empty();
+                      div.removeClass('nowrap');
+                      if ( response.message ) {
+                          div.css('background-color', '#e9fbf2');
+                          div.append( response.message );
+                      } else {
+                          div.css('background-color', '#fce8e8');
+                          div.append( response.error );
+                      }
+
+                      history.replaceState(null, null, null);
+                  });
+              });
+          });
+        </script>
+        <div id="release-list-container" class="nowrap" style="text-align: left">
+          <form id="release-list-form">
+            <input type="email" name="email" placeholder="you@example.com" required><input id="release-list-submit" type="submit" value="Send">
+          </form>
+        </div>
+      </th>
     </table>
   </div>
 

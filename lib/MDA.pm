@@ -2,28 +2,19 @@ package MDA;
 
 use strict; use warnings;
 use 5.30.1;
-use Module::Runtime 'require_module';
+use Path::Tiny;
 
-use Dancer2;
-use Dancer2::Plugin::Cache::CHI;
+use Moo;
+use namespace::clean;
 
-use MDA::Plugin;
-
-our $VERSION = '0.20';
-
-get '/' => sub {
-    debug "in /";
-    template 'index', { mce_meta => mce_meta };
-};
-
-#---------------------------#
-my $prefix = 'MDA::Route';
-
-my %required_modules = (
-    'Contact' => 0,
+has root_dir => (
+    is      => 'lazy',
+    builder => sub {
+        my $dir = path($0)->parent;
+        $dir = $dir->parent until $dir->child('.mda_base')->exists or $dir->is_rootdir;
+        return $dir->realpath;
+    },
 );
-
-require_module( join('::', $prefix, $_) ) for grep { $required_modules{ $_ } == 1 } ( keys %required_modules );
 
 1; # return true
 
@@ -31,24 +22,28 @@ __END__
 
 =head1 NAME
 
-MDA - Dancer2 App for the MCE website
+MDA - Base class for the MCE website backend code
 
 =head1 DESCIPTION
 
 MDA : "MCE Dancer App"
 
-To add a route to the server, write a class under C<MDA::Route>, add its name to C<%required_modules>.
-
 =head1 SYNOPSIS
 
-  plackup bin/app.psgi;
+    use MDA;
 
-=head1 METHODS
+    my $mda = MDA->new;
 
-None
+=head1 ATTRIBUTES
+
+=over
+
+=item B<root_dir>
+
+The root directory for the entire codebase. Built lazily by searching for the C<.mda_base> file's parent folder.
 
 =head1 SEE ALSO
 
-L<Dancer2>
+L<MDA::App> - the Dancer2 app
 
 =cut
