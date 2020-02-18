@@ -1,0 +1,8 @@
+
+Hello, this is the automated release announcement service at https://parallel.pl notifying you of the following CPAN release(s):
+[% FOR item IN updates %]
+Distribution: [% item.module %]
+Version: [% item.version %]
+Release date: [% item.release_date %]
+[% END %]
+Thank you for your interest and support.

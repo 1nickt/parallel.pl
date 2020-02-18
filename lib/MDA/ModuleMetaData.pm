@@ -23,20 +23,20 @@ use namespace::clean;
 
 extends 'MDA';
 
-has send_mail  => ( is => 'ro', default => 0 );
+has send_mail       => ( is => 'ro', default => 0 );
+has _path           => ( is => 'lazy', builder => sub { sprintf('%s/.mce_meta', shift->root_dir) } );
+has _file           => ( is => 'lazy', builder => sub { path( shift->_path ) } );
+has _email_template => ( is => 'lazy', builder => sub { sprintf('%s/scripts/templates/release-announcement-email.tt', shift->root_dir) } );
 
 #---------------------------------------------------------------------#
 #
 method check_and_update () {
     my @modules = ('MCE', 'MCE::Shared');
 
-    my $filename = '.mce_meta';
-    my $path = sprintf('%s/%s', $self->root_dir, $filename);
-    my $file = path($filename);
-
     $log->debug('Fetching local module metadata');
+
     my $local_data = try {
-        my $data = decode_json($file->slurp);
+        my $data = decode_json( $self->_file->slurp );
         die 'No metadata found in file' if  ! scalar keys %$data;
         $data;
     }
@@ -48,6 +48,7 @@ method check_and_update () {
     # If there is no local data, we can still continue.
 
     $log->debug('Fetching module metadata from CPAN');
+
     my $cpan_data = try {
         +{ map {
             my $release = MetaCPAN::Client->new->release( $_ =~ s/::/-/r );
@@ -61,9 +62,6 @@ method check_and_update () {
         $log->warn("Could not retrieve metadata from CPAN. Exiting: $_");
         +{};
     };
-
-use Data::Dumper;
-warn "CPAN: " . Dumper $cpan_data;
 
     # Cannot continue without data from CPAN.
     return unless (exists $cpan_data->{'MCE'}) && (exists $cpan_data->{'MCE::Shared'});
@@ -90,7 +88,7 @@ warn "CPAN: " . Dumper $cpan_data;
     $log->debug('Writing module metadata to file');
 
     my $commit_file = try {
-        $file->spew( Cpanel::JSON::XS->new->pretty->encode($cpan_data) );
+        $self->_file->spew( Cpanel::JSON::XS->new->pretty->encode($cpan_data) );
     } catch {
         $log->error("Could not write module metadata to file: $_");
         0;
@@ -98,11 +96,22 @@ warn "CPAN: " . Dumper $cpan_data;
 
     return unless $commit_file;
 
+    $log->debug('Committing changes to file and pushing to origin');
+
     my $committed_and_pushed = try {
+        $log->debug('Instantiating git wrapper');
         my $git = Git::Wrapper->new( $self->root_dir );
-        $git->add($path);
+        $git->AUTOPRINT(1);
+
+        $log->debug('git adding file');
+        $git->add( $self->_path );
+
+        $log->debug('git committing file');
         $git->commit({ message => 'Update module metadata' });
+
+        $log->debug('git pushing');
         $git->push;
+        1;
     }
     catch {
         $log->error("Could not commit and push module metadata file: $_");
@@ -113,7 +122,6 @@ warn "CPAN: " . Dumper $cpan_data;
         $self->_send_version_announcement(\%updated);
     }
 }
-
 
 #---------------------------------------------------------------------#
 #
@@ -127,22 +135,25 @@ method _send_version_announcement ($updated) {
         sasl_password => config->{mailman}{'mce-release-announce'}{sender}{password},
     });
 
-    my $subject = 'MCE Version Announcement from parallel.pl';
+    my $current_data = try {
+        my $data = decode_json( $self->_file->slurp );
+        die 'No metadata found in file' if  ! scalar keys %$data;
+        $data;
+    }
+    catch {
+        $log->info("Could not retrieve local metadata from file storage: $_");
+    };
 
-    my $tt = Template->new({
-        INCLUDE_PATH => '/usr/local/templates',
-        INTERPOLATE  => 1,
-    }) || $log->error("Could not initialize Template obj: $Template::ERROR");
+    return unless $current_data;
 
-    return unless $tt;
+    my $subject = 'CPAN release announcement: ';
+    $subject .= join(' and ', map { sprintf('%s %s', $_, $current_data->{$_}{version}) } sort keys %$updated );
 
-    $tt->process('letters/overdrawn', $_)
-        || die $tt->error(), "\n";
+    my @template_data = map { { module => $_, %{$current_data->{$_}} } } sort keys %$updated;
 
-
-
-
-    my $content = "QUX";
+    my $content;
+    my $tt = (engine 'template')->engine;
+    $tt->process($self->_email_template, { updates => \@template_data }, \$content );
 
     my $email = Email::Simple->create(
         header => [

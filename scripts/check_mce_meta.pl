@@ -7,7 +7,7 @@ use Getopt::Long 'GetOptions';
 
 use MDA::ModuleMetaData;
 
-my $send_mail;
+my $send_mail = '';
 GetOptions( send_mail => \$send_mail );
 
 MDA::ModuleMetaData->new( send_mail => $send_mail )->check_and_update;
