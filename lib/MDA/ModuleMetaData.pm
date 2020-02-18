@@ -30,11 +30,7 @@ has _email_template => ( is => 'lazy', builder => sub { sprintf('%s/scripts/temp
 
 #---------------------------------------------------------------------#
 #
-method check_and_update () {
-    my @modules = ('MCE', 'MCE::Shared');
-
-    $log->debug('Fetching local module metadata');
-
+method local_data () {
     my $local_data = try {
         my $data = decode_json( $self->_file->slurp );
         die 'No metadata found in file' if  ! scalar keys %$data;
@@ -42,8 +38,19 @@ method check_and_update () {
     }
     catch {
         $log->info("Could not retrieve local metadata from file storage: $_");
-        +{};
     };
+
+    return $local_data;
+}
+
+#---------------------------------------------------------------------#
+#
+method check_and_update () {
+    my @modules = ('MCE', 'MCE::Shared');
+
+    $log->debug('Fetching local module metadata');
+
+    my $local_data = $self->local_data || {};
 
     # If there is no local data, we can still continue.
 
@@ -135,14 +142,7 @@ method _send_version_announcement ($updated) {
         sasl_password => config->{mailman}{'mce-release-announce'}{sender}{password},
     });
 
-    my $current_data = try {
-        my $data = decode_json( $self->_file->slurp );
-        die 'No metadata found in file' if  ! scalar keys %$data;
-        $data;
-    }
-    catch {
-        $log->info("Could not retrieve local metadata from file storage: $_");
-    };
+    my $current_data = $self->local_data;
 
     return unless $current_data;
 

@@ -10,7 +10,7 @@ use namespace::clean;
 has root_dir => (
     is      => 'lazy',
     builder => sub {
-        my $dir = path($0)->parent;
+        my $dir = path(__FILE__)->parent;
         $dir = $dir->parent until $dir->child('.mda_base')->exists or $dir->is_rootdir;
         return $dir->realpath;
     },

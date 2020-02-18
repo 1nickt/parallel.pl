@@ -12,7 +12,12 @@ use MDA::ModuleMetaData;
 
 plugin_keywords 'mce_meta';
 
-method mce_meta { MDA::ModuleMetaData->new->data }
+method mce_meta {
+    my $data = MDA::ModuleMetaData->new->local_data;
+    $data->{mce} = delete $data->{'MCE'};
+    $data->{mce_shared} = delete $data->{'MCE::Shared'};
+    return $data;
+}
 
 1; # return true
 

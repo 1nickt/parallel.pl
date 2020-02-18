@@ -14,6 +14,7 @@ requires 'Email::Sender::Transport';
 requires 'Email::Simple';
 requires 'Email::Simple::Creator';
 requires 'Git::Wrapper';
+requires 'HTTP::CookieJar';
 requires 'HTTP::Parser::XS';
 requires 'HTTP::XSCookies';
 requires 'MetaCPAN::Client';
