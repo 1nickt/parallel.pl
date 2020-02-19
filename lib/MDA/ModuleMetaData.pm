@@ -169,7 +169,7 @@ method _send_version_announcement ($updated) {
             transport => $transport,
         });
     } catch {
-        $log->error( $_->{message} );
+        $log->error($_);
     };
 }
 

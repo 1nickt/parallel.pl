@@ -1,3 +1,4 @@
+requires 'Authen::SASL';
 requires 'CGI::Deurl::XS';
 requires 'CHI';
 requires 'CHI::Driver::Redis';
@@ -19,6 +20,7 @@ requires 'HTTP::Parser::XS';
 requires 'HTTP::XSCookies';
 requires 'MetaCPAN::Client';
 requires 'Method::Signatures';
+requires 'MIME::Base64';
 requires 'Module::Load';
 requires 'Path::Tiny';
 requires 'Plack';
