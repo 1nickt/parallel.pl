@@ -8,7 +8,7 @@ BEGIN {
 
 use Time::Piece;
 use Log::Any '$log';
-use Log::Any::Adapter (File => '/tmp/MDA-app.log');
+use Log::Any::Adapter (File => '/tmp/check-mce-meta.log');
 use Getopt::Long 'GetOptions';
 
 use MDA::ModuleMetaData;
