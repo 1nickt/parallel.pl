@@ -1,7 +1,7 @@
 {
    "MCE::Shared" : {
-      "version" : 1.864,
-      "release_date" : "2019-12-04"
+      "release_date" : "2019-12-04",
+      "version" : 1.864
    },
    "MCE" : {
       "version" : 1.866,
