@@ -146,7 +146,8 @@ method _send_version_announcement ($updated) {
 
     return unless $current_data;
 
-    my $subject = join(' and ', map { sprintf('%s %s', $_, $current_data->{$_}{version}) } sort keys %$updated );
+    my $subject = 'Now on CPAN: ';
+    $subject .= join(' and ', map { sprintf('%s %s', $_, $current_data->{$_}{version}) } sort keys %$updated );
 
     my @template_data = map { { module => $_, %{$current_data->{$_}} } } sort keys %$updated;
 
