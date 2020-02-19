@@ -1,10 +1,10 @@
 {
+   "MCE::Shared" : {
+      "release_date" : "2019-12-04",
+      "version" : 1.864
+   },
    "MCE" : {
       "version" : 1.866,
       "release_date" : "2020-02-09"
-   },
-   "MCE::Shared" : {
-      "version" : 1.864,
-      "release_date" : "2019-12-04"
    }
 }
