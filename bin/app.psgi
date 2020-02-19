@@ -6,7 +6,7 @@ use Dancer2::Debugger;
 use Plack::Debugger::Panel::Dancer2::Logger;
 
 BEGIN {
-    push @INC, sprintf '%s/lib', path($0)->parent->parent->realpath;
+    push @INC, sprintf '%s/lib', path(__FILE__)->parent->parent->realpath;
 }
 
 my $debugger = Dancer2::Debugger->new;
