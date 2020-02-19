@@ -157,7 +157,7 @@ method _send_version_announcement ($updated) {
 
     my $email = Email::Simple->create(
         header => [
-            To      => 'nick@nicktonkin.net',#$conf->{mailman}{'mce-release-announce'}{list}{email},
+            To      => config->{mailman}{'mce-release-announce'}{list}{email},
             From    => config->{mailman}{'mce-release-announce'}{sender}{email},
             Subject => $subject,
         ],
